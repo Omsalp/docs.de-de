@@ -58,6 +58,11 @@ Ein grundlegendes Muster zum Implementieren einer Eigenschaft umfasst ein privat
 
 Dieses Muster wird anhand des folgenden Beispiels veranschaulicht. In diesem Beispiel stellt die `TimePeriod`-Klasse ein Zeitintervall dar. Intern speichert die Klasse das Zeitintervall in Sekunden in einem privaten Feld mit dem Namen `seconds`. Eine Schreib-Lese-Eigenschaft mit dem Namen `Hours` ermöglicht dem Kunden, das Zeitintervall in Stunden anzugeben. Die `get`- und `set`-Accessoren führen jeweils die notwendige Konvertierung zwischen Stunden und Sekunden durch. Darüber hinaus prüft der `set`-Accessor die Daten, und löst eine @System.ArgumentOutOfRangeException aus, wenn die Anzahl von Stunden ungültig ist. 
    
+  In the code below it must be:
+  if (value < 0 || value > 23)
+  and not
+  if (value < 0 || value > 24)
+  
  [!code-cs[Eigenschaften#1](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/properties-1.cs)]  
   
 ## <a name="expression-body-definitions"></a>Ausdruckstextdefinitionen  
